@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+    <style>
+        #form{
+            margin: auto;
+  width: 50%;
+  padding: 100px;
+  margin-top: 200px;
+
+        }
+        #button{
+            height: 35px;
+    width: 167px;
+    border-radius: 43px;
+    background-color: blueviolet;
+    cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="form">
+    <form>
+        
+    <h1 style="color:blue; text-decoration:underline">EXPENSE TRACKER</h1>
+        <p>Select month</p>
+        <input type="text" id="month">
+        <p>Income</p>
+        <input type="text" id="income">
+        <p>Expenses</p>
+        <input type="text" id="exp">
+        <br>
+        <br>
+        <button type="submit" id="button">submit</button>
+    </form>
+</div>
+<div id="res" style="display:flex;flex-direction: row;">
+
+
+
+</div>
+<script>
+    let btn=document.querySelector("#button");
+    btn.addEventListener("click",fun1);
+    function fun1(e){
+        e.preventDefault()
+        var mon = document.getElementById("month").value;
+        document.getElementById("month").value="";
+        
+        var income = document.getElementById("income").value;
+        document.getElementById("income").value=""
+        var exp = document.getElementById("exp").value;
+        document.getElementById("exp").value=""
+        var saving = parseInt(income) - parseInt(exp)
+        // var mo = document.getElementById("mo");
+        // mo.textContent = mon;
+        // var inc = document.getElementById("inc");
+        // inc.textContent = "Your income is "+ income;
+        // var ex = document.getElementById("ex");
+        // ex.textContent = "Your expenses is "+ exp;
+        // var savi = document.getElementById("savi");
+        // savi.textContent = "Your saving is "+ saving;
+        let data = `
+        <div>
+            <h2 id="mo">${mon}</h2>
+            <p id="inc" > Your income is ${income}</p>
+            <p id="ex" > your expenses is ${exp}</p>
+            <p id="savi" >your saving is ${saving}</p>
+        </div>
+        `
+        let result=document.querySelector("#res");
+        result.innerHTML+=data;
+
+        
+    }
+</script>
+    
+</body>
+</html>
